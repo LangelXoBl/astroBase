@@ -1,0 +1,28 @@
+---
+import Layout from "@layouts/Layout.astro";
+---
+
+<Layout title="Login">
+  <article
+    class="flex flex-col items-center justify-center
+    mt-36 gap-2 p-14 mx-auto w-min
+    border-2 rounded-xl border-cyan-400"
+  >
+    <h1 class="text-6xl text-cyan-500">Login</h1>
+
+    <label class="text-white">
+      Usuario:
+      <input name="user" type="text" placeholder="benito" />
+    </label>
+    <label class="text-white"
+      >Password:
+      <input type="password" name="pass" placeholder="********" />
+    </label>
+    <button
+      class="border-2 border-solid border-cyan-900 px-3 py-1 rounded-lg text-white"
+      >Login</button
+    >
+  </article>
+</Layout>
+
+<style></style>
