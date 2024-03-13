@@ -1,17 +1,21 @@
 import { defineMiddleware } from "astro:middleware"
 
-const unprotectedRoutes = ["/", "/login"]
+const protectedRoutes = ["/about"]
 
-const middleware = defineMiddleware(({ url, redirect }, next) => {
-	console.log(
-		"Ejecutando middleware antes del renderizado",
-		`Route: ${url.pathname}`
-	)
-	if (unprotectedRoutes.includes(url.pathname)) {
+const middleware = defineMiddleware(
+	({ url, redirect, currentLocale, ...rest }, next) => {
+		console.log(url)
+		console.log(
+			"Ejecutando middleware antes del renderizado",
+			`Route: ${url.pathname}`
+		)
+		console.log(rest)
+		if (protectedRoutes.includes(url.pathname)) {
+			console.log("Redirect -> login")
+			return redirect("/login")
+		}
 		return next()
 	}
-	console.log("Redirect -> login")
-	return redirect("/login")
-})
+)
 
 export const onRequest = middleware

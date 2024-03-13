@@ -1,6 +1,14 @@
 ---
 import Layout from "@layouts/Layout.astro"
 import Card from "@components/Card.astro"
+import { getRelativeLocaleUrl } from "astro:i18n"
+
+const aboutUrl = getRelativeLocaleUrl("us", "about")
+const otherUrl = getRelativeLocaleUrl("es", "about")
+console.log({
+	aboutUrl,
+	otherUrl,
+})
 ---
 
 <Layout title="Welcome to Astro.">
@@ -33,7 +41,7 @@ import Card from "@components/Card.astro"
 				</linearGradient>
 			</defs>
 		</svg>
-		<h1>Bienvenido a <span class="text-gradient">Astro</span></h1>
+		<h1>Welcome to <span class="text-gradient">Astro</span></h1>
 		<p class="instructions">
 			To get started, open the directory <code>src/pages</code> in your project.<br
 			/>
@@ -61,7 +69,7 @@ import Card from "@components/Card.astro"
 				body="Come say hi to our amazing Discord community. ❤️"
 			/>
 		</ul>
-		<a href="/about">Mas sobre el proyecto</a>
+		<a href={aboutUrl}>More to the proyect...</a>
 	</main>
 </Layout>
 
