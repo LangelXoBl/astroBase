@@ -1,5 +1,6 @@
 ---
 import Card from "@/components/Card.astro"
+import SelectorLanguage from "@/components/SelectorLanguage.vue"
 import { getI18N } from "@/i18n"
 import Layout from "@/layouts/Layout.astro"
 import { getRelativeLocaleUrl } from "astro:i18n"
@@ -10,6 +11,9 @@ const pathAbout = getRelativeLocaleUrl(currentLocale || "es", "about")
 ---
 
 <Layout title="Welcome to Astro.">
+	<header class="flex flex-row justify-end">
+		<SelectorLanguage class:list={"m-1"} client:load />
+	</header>
 	<main>
 		<svg
 			class="astro-a"
